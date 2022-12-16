@@ -38,7 +38,7 @@ const MintPage = () => {
     const confirmMint = async () => {
         setLoading(true);
         try {
-            await fetch("http://yellowsun-nft.com/api/mint", {
+            await fetch("https://yellowsun-nft.com/api/mint", {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
