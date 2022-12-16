@@ -38,7 +38,7 @@ const MintPage = () => {
     const confirmMint = async () => {
         setLoading(true);
         try {
-            await fetch("http://localhost:4000/mint", {
+            await fetch("http://localhost:4000/api/mint", {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
