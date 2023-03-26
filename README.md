@@ -1,1 +1,1 @@
-# anordica-dapp
+# DemoAI

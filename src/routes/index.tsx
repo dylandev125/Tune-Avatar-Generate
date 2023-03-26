@@ -1,21 +1,22 @@
 import AppLayout from 'layout/AppLayout';
 import { lazy } from 'react';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 const WelcomePage = lazy(() => import('views/WelcomePage'));
-const MintPage = lazy(() => import('views/MintPage'));
+const PromptPage = lazy(() => import('views/PromptPage'));
+const CustomPage = lazy(() => import('views/CustomPage'));
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <AppLayout>
+      {/* <AppLayout> */}
           <Routes>
-            <Route path='/' element={<WelcomePage/>}></Route>
-            {/* <Route path='/' element={<Navigate to="/launchpad" replace />}></Route> */}
-            <Route path='/mint' element={<MintPage/>}></Route>
-
+            <Route path='/' element={<Navigate to='/tune' />} />
+            <Route path='/custom' element={<CustomPage />} />
+            <Route path='/tune' element={<WelcomePage/>}></Route>
+            <Route path='/prompt' element={<PromptPage/>}></Route>
           </Routes>
-      </AppLayout>
+      {/* </AppLayout> */}
     </BrowserRouter>
   );
 };

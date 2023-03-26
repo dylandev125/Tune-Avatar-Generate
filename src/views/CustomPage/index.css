@@ -1,0 +1,232 @@
+.container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px 150px;
+    padding: 30px 60px;
+}
+
+.header-text {
+    color: #000000;
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 43px;
+}
+
+.caption-sm {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #808080;
+}
+
+.caption-med {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.caption-mid {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.signin-experience {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    gap: 0px 20px;
+    padding: 0px 15px;
+    margin-bottom: 60px;
+}
+
+input[type='radio'] {
+    -webkit-appearance:none;
+    width:18px;
+    height:18px;
+    border:1px solid darkgray;
+    border-radius:50%;
+    outline:none;
+}
+
+.signin-experience input:checked {
+    background-color: #106EBE;
+}
+
+.title-experience {
+    display: flex;
+    align-items: center;
+    gap: 0px 8px;
+}
+
+.title-experience img {
+    width: 18px;
+    height: 18px;
+}
+
+.radio-text {
+    display: flex;
+    align-items: center;
+    gap: 0px 7px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #808080;
+    margin-right: 5px;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 5px;
+}
+
+.radio-text:hover {
+    color: #323130;
+}
+
+.radio-checked {
+    color: #323130!important;
+    font-weight: 600!important;
+    border-bottom: 3px solid #56b4fc;
+}
+
+.text-normal {
+    font-size: 14px;
+    color: #323130;
+}
+
+.btn-run {
+    display: flex;
+    align-items: center;
+    gap: 0px 10px;
+    margin: 20px 0px;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 16px;
+    font-size: 14px;
+    background-color: #0078D4;
+}
+
+.btn-run img {
+    width: 15px;
+    height: 15px;
+}
+
+.title-nextstep {
+    margin-top: 50px;
+}
+
+.btn-group {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 150px;
+    gap: 0px 10px;
+    padding-top: 30px;
+    border-top: 1px solid rgb(206, 206, 206);
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.btn-common {
+    padding: 5px 18px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-previous {
+    background-color: white;
+    border: 1px solid #808080;
+    color: #323130;
+
+}
+.btn-continue {
+    background-color: #1986da;
+    border: 1px solid #1986da;
+    color: white;
+}
+
+.exit-guide {
+    font-size: 14px;
+    color: #1986da;
+}
+
+.radio-group {
+    min-width: 340px;
+    display: flex;
+    align-items: center;
+    gap: 0px 10px;
+}
+
+.preview-container {
+    min-width: 200px;
+}
+
+.preview-wrapper {
+    height: 400px;
+    background-color: #006ec2;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-preview {
+    width: 260px;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: white;
+}
+
+.signin-preview img {
+    margin: auto;
+}
+
+.blank-rect1 {
+    margin: 15px 0px;
+    height: 15px;
+    background-color: #d6d4d4;
+}
+
+.blank-rect2 {
+    margin-top: 15px;
+    width: 150px;
+    height: 10px;
+    background-color: #d6d4d4;
+}
+
+.blank-rect3 {
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 60px;
+    background-color: #006ec2;
+    border-radius: 4px;
+}
+
+.blank-rect4 {
+    width: 100%;
+    height: 16px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.google-icon {
+    width: 20px;
+}
+
+.text-thin {
+    margin-left: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: #808080;
+}

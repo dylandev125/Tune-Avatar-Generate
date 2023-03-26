@@ -1,60 +1,20 @@
-import { useEffect } from 'react';
-import { injected } from "components/wallet/Connectors"
-import { useWeb3React } from "@web3-react/core"
-import { Link } from "react-router-dom"
-
-declare global {
-    interface Window {
-      ethereum: any
-    }
-  }
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
-    const { active, account, activate, deactivate, chainId } = useWeb3React()
-    const connect = async () => {
-        try {
-            await activate(injected)
-        } catch (ex) {
-        console.log(ex)
-        }
-    }
+  const location = useLocation();
 
-    const disconnect = async () => {
-        try {
-          deactivate()
-        } catch (ex) {
-          console.log(ex)
-        }
-    }
+  return (
+    <div className="bg-[#009688] w-full py-[15px] sm:px-[100px] px-[20px] h-[80px] flex justify-between items-center">
+      <p className="text-[#ffffff] text-3xl font-bold drop-shadow-[0px_16px_16px_rgba(0,0,0,0.9)] w-fit">
+        Create your avatar!
+      </p>
 
-    // useEffect(() => {
-    //     (async () => {
-    //         const ethereum = window?.ethereum;
-    //         if (chainId !== 1 && active) {
-    //             await ethereum.request({
-    //                 method: "wallet_switchEthereumChain",
-    //                 params: [{ chainId: '0x1' }],
-    //             });
-    //         }
-    //     })();
-
-    // },[account, chainId])
-
-    const getShortAddress = (address: string | null | undefined) => {
-        if (address) return address.slice(0, 5) + "..." + address.slice(-5);
-    }
-
-    return (
-        <div className="bg-[black] w-full py-[15px] sm:px-[100px] px-[20px] h-[80px] flex justify-between">
-            <Link to={'#'}>
-                <img className='sm:block hidden' src="https://www.anordica.se/templates/anordica/images/main-logo.png"/>
-                <img className='sm:hidden block' src="https://www.anordica.se/templates/anordica/images/main-logo-small.png"/>
-            </Link>
-            <button className="transition-all text-white bg-[#f9b500] py-2 sm:px-6 px-2 font-bold text-sm hover:text-[black] hover:bg-[#1f9bde] duration-300 sm:text-2xl" onClick={active ? disconnect : connect}>
-                {active ? getShortAddress(account) : "Connect Wallet"}
-            </button>
-        </div>
-    )
-}
+      <div className="flex gap-x-4 text-white text-lg font-semibold">
+        <Link className={`transition-all hover:border-b-2 hover:border-[#FFFFFF] border-[#009688] ${location.pathname === '/tune' ? "border-b-2 border-white" : ""}`} to={"/tune"}>Tune</Link>
+        <Link className={`transition-all hover:border-b-2 hover:border-[#FFFFFF] border-[#009688] ${location.pathname === '/prompt' ? "border-b-2 border-white" : ""}`} to={"/prompt"}>Prompt</Link>
+      </div>
+    </div>
+  );
+};
 
 export default Header;
