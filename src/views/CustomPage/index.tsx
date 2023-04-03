@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { RotatingLines } from 'react-loader-spinner'
 
 import Check from './assets/check.png'
 import Play from './assets/play.png'
@@ -8,7 +9,16 @@ import './index.css'
 
 const CustomPage = () => {
     const [ signinOption, setSigninOption ] = useState<number>(1);
+    const [ step, setStep ] = useState<number>(1);
 
+    useEffect(() => {
+        if (step === 2) {
+            const timer = setTimeout(() => { 
+                setStep(3);
+            },3000);
+        }
+    },[step])
+    
     return (
         <div className='container'>
             <div className='guide-container'>
@@ -50,11 +60,23 @@ const CustomPage = () => {
                 <h2 className='caption-med'>It's ready! Try it out</h2>
                 <p className='text-normal'>Use this button to try out the sign-up experience and create your first user. Your sign-up page will open in a new tab.</p>
 
-                <button className='btn-run'>
+                <button className='btn-run' onClick={() => setStep(2)}>
                     <img alt='' src={Play}/>
                     Run it now
                 </button>
-
+                {step === 2 &&
+                <>
+                    <RotatingLines
+                        strokeColor="grey"
+                        strokeWidth="5"
+                        animationDuration="0.75"
+                        width="96"
+                        visible={true}
+                    />
+                </>
+                }
+                {step === 3 &&
+                <>
                 <div className='title-experience'>
                     <img alt='' src={Check}/>
                     <h2 className='caption-mid'>Well done! Your sign-up experience is all set!</h2>
@@ -64,6 +86,8 @@ const CustomPage = () => {
                     <h2 className='caption-med'>Next steps are optional</h2>
                     <p className='text-normal'>Continue if you'd like to try out your sign-up experience with a sample app. Or exit the guide now to start exploring the portal (you can always come back)</p>
                 </div>
+                </>
+                }
             </div>
 
             <div className='preview-container'>
@@ -86,9 +110,9 @@ const CustomPage = () => {
             </div>
 
             <div className='btn-group'>
-                <button className='btn-common btn-previous'>Previous</button>
-                <button className='btn-common btn-continue'>Continue</button>
-                <a href='/#' className='exit-guide'>Exit guide</a>
+                <button className={`btn-common btn-previous ${step === 2 ? "btn-disable" : ""}`}>Previous</button>
+                <button className={`btn-common btn-continue ${step === 1 || step === 2 ? "btn-disable" : ""}`}>Continue</button>
+                <a href='/#' className={`exit-guide ${step === 3 ? "" : "hidden"}`}>Exit guide</a>
             </div>
             
         </div>
